@@ -29,7 +29,7 @@ Statuswerte je Feature: geplant, in Arbeit, verfügbar.
 
 - **Wer:** Status sehen: Admin, Eltern, ältere Kinder. Schalten: Admin, Eltern, ältere Kinder, jeweils mit PIN.
 - **Regeln:** Gäste sehen nichts. Die Alarmanlage ist nicht über HomeKit erreichbar. Nach jeder Aktion erscheint eine Rückmeldung.
-- **PIN:** Wird nie im Repository oder in dieser Anleitung dokumentiert. Verwaltung und Ablage legt P4 fest.
+- **PIN:** Eine eigene PIN pro Person, kein gemeinsamer PIN. Wird nie im Repository oder in dieser Anleitung dokumentiert. Verwaltung und Ablage legt P4 fest.
 - **Status:** geplant (P2, P3).
 
 ### 3. Energieanzeige (Fronius)
@@ -43,7 +43,7 @@ Statuswerte je Feature: geplant, in Arbeit, verfügbar.
 
 - **Wer:** Admin (Eltern nach Festlegung in P2).
 - **Konfigurierbar (Soll):** pro Kind, pro Raum, pro Kategorie (Licht, Beschattung, Klima, Alarm) und pro Zeitfenster.
-- **Ablauf (Soll):** Wird in P2 festgelegt, weil Home Assistant diese Rechte nicht nativ bietet (R-01).
+- **Ablauf (Soll):** Rechteprofile je Zeitfenster (Tag, Nacht) statt Sperre, Details in `04-rbac.md`. Home Assistant bietet diese Rechte nicht nativ (R-01, ADR-005). Beide Kinder sind gleichberechtigt.
 - **Status:** geplant (P2).
 
 ### 5. Nachtautomatik und Kalender
@@ -57,7 +57,7 @@ Statuswerte je Feature: geplant, in Arbeit, verfügbar.
 
 - **Wer:** Admin und Eltern legen den Gastzeitraum an.
 - **Ablauf (Soll):** Gastzeitraum als Kalendereintrag von–bis. Außerhalb des Zeitraums ist der Zugang gesperrt.
-- **Offen:** Wie der Code erzeugt und geprüft wird, ist offen (OP-07). Home Assistant sieht keine Code-Anmeldung für Gäste nativ vor (zu prüfen in P2).
+- **Regel:** Der Code wird neu pro Besuch erzeugt und gilt nur im Zeitraum von–bis. Ein Besuch wird erst nach Freigabe durch Eltern aktiv. Die technische Prüfung ist als Entwurf in ADR-006 beschrieben (OP-07).
 - **Status:** geplant (P2).
 
 ### 7. Kiosk-Tablets

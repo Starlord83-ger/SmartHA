@@ -10,7 +10,7 @@ Prinzip: kleine bis mittlere Pakete, jedes mit Review und Freigabe. Die Reihenfo
 |---|---|---|---|
 | P1 | Grundlagen | freigegeben (2026-11-25) | README, Anforderungen, Kontextdiagramm, ADR-001 |
 | P1b | Repo-Standards und Entscheidungen | freigegeben (2026-11-25) | CLAUDE.md, Vorlagen, ADR-002 bis 004, Paketkatalog, Projektlog, Operatoranleitung |
-| P2 | RBAC-Konzept | geplant | RBAC-Dokument, ADR zur Rechteumsetzung und zum Gäste-Code |
+| P2 | RBAC-Konzept | Entwurf (zur Freigabe) | `04-rbac.md`, ADR-005 (Rechteumsetzung), ADR-006 (Gäste-Code) |
 | P3 | Schnittstellen | geplant | Schnittstellendokument, Loxone-Spezifikation |
 | P4 | Netzwerk und Security | geplant | Netz-/Sicherheitskonzept, Secret-Ablage, Härtung |
 | P5 | Backup und Disaster Recovery | geplant | DR-Plan, vervollständigte Runbooks |
@@ -58,7 +58,7 @@ Prinzip: kleine bis mittlere Pakete, jedes mit Review und Freigabe. Die Reihenfo
 - **Beschreibung:** Verbindliches Rechtemodell für Admin, Eltern, Kinder und Gäste.
 - **Inhalt:** `04-rbac.md` mit Rollen, Rechtematrix je Kind, Raum, Kategorie und Zeitfenster, PIN-Konzept für die Alarmanlage, Mechanismus für den Gäste-Code auf Basis des HA-Kalenders (ADR-002), Rechte zur Kalenderbearbeitung. Neuer ADR zur technischen Umsetzung.
 - **Warum nach ADR-002:** Gäste-Code und Zeitfenster hängen am Kalender.
-- **Abhängigkeiten:** P1b. Offener Punkt OP-07.
+- **Abhängigkeiten:** P1b. Offene Punkte OP-07 bis OP-10 (siehe Anforderungen).
 - **Risiken:** R-01. Home Assistant bringt feingranulare Rechte nicht nativ mit.
 - **Abnahme:** Jede Zeile der Rechtematrix ist eindeutig und prüfbar.
 
