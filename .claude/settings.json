@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(./**/secrets.yaml)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Write(./.env)",
+      "Write(./.env.*)",
+      "Bash(ssh *)",
+      "Bash(scp *)",
+      "Bash(docker *)",
+      "Bash(docker-compose *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(git push --force *)",
+      "Bash(rm -rf *)"
+    ],
+    "ask": [
+      "Bash(git commit *)",
+      "Bash(git push *)"
+    ]
+  }
+}
