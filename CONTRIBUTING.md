@@ -22,7 +22,7 @@ Jede Änderung geht über einen Pull Request mit Vorlage (`.github/pull_request_
 
 ## Releases
 
-- Jedes freigegebene Paket wird getaggt, z. B. `v0.1.0` für Paket 1. Solange nur Dokumentation existiert, bleibt die Hauptversion 0.
+- Jedes freigegebene Paket wird getaggt, z. B. `v0.1.0` für die gemeinsam freigegebenen Pakete 1 und 1b. Solange nur Dokumentation existiert, bleibt die Hauptversion 0.
 - Der Eintrag im `CHANGELOG.md` und der Paketstatus werden vor dem Tag aktualisiert.
 - Der Release-Plan folgt in Paket 6. Bis dahin gilt dieses Vorgehen.
 

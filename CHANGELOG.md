@@ -4,6 +4,21 @@ Format angelehnt an „Keep a Changelog“. Versionen werden beim Release vergeb
 
 ## [Unreleased]
 
+### Freigabe von Paket 1 und 1b
+
+**Neu**
+- `docs/changes/CHG-004-freigabe-paket-1-1b.md`
+
+**Geändert**
+- Status auf „freigegeben“ in `README.md`, `docs/01-requirements.md`, `docs/02-architecture-context.md`, `docs/03-development-packages.md`
+- `CONTRIBUTING.md`: Beispiel zum Release-Tag
+- `docs/PROJECT_LOG.md`: neuer Eintrag
+
+**Entfernt**
+- nichts
+
+## [0.1.0] - 2026-11-25 (Pakete 1 und 1b, gemeinsam freigegeben)
+
 ### Paket 1b: Repo-Standards und Entscheidungen
 
 **Neu**

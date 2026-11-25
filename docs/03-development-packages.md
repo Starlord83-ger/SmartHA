@@ -8,8 +8,8 @@ Prinzip: kleine bis mittlere Pakete, jedes mit Review und Freigabe. Die Reihenfo
 
 | Paket | Titel | Status | Hauptergebnisse |
 |---|---|---|---|
-| P1 | Grundlagen | Entwurf (zur Freigabe) | README, Anforderungen, Kontextdiagramm, ADR-001 |
-| P1b | Repo-Standards und Entscheidungen | Entwurf (zur Freigabe) | CLAUDE.md, Vorlagen, ADR-002 bis 004, Paketkatalog, Projektlog, Operatoranleitung |
+| P1 | Grundlagen | freigegeben (2026-11-25) | README, Anforderungen, Kontextdiagramm, ADR-001 |
+| P1b | Repo-Standards und Entscheidungen | freigegeben (2026-11-25) | CLAUDE.md, Vorlagen, ADR-002 bis 004, Paketkatalog, Projektlog, Operatoranleitung |
 | P2 | RBAC-Konzept | geplant | RBAC-Dokument, ADR zur Rechteumsetzung und zum Gäste-Code |
 | P3 | Schnittstellen | geplant | Schnittstellendokument, Loxone-Spezifikation |
 | P4 | Netzwerk und Security | geplant | Netz-/Sicherheitskonzept, Secret-Ablage, Härtung |
