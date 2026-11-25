@@ -12,6 +12,7 @@ Format angelehnt an „Keep a Changelog“. Versionen werden beim Release vergeb
 **Geändert**
 - `docs/01-requirements.md` (OP-01, OP-07 bis OP-10, R-01, R-10, R-11, FR-07, FR-09, FR-15, Rechtematrix)
 - `docs/adr/README.md`, `docs/03-development-packages.md`, `docs/operator-guide.md`, `README.md`, `docs/PROJECT_LOG.md`
+- ADR-005 auf „Akzeptiert“, OP-08 bis OP-10 entschieden
 
 **Entfernt**
 - nichts

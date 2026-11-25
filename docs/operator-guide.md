@@ -14,7 +14,7 @@ Statuswerte je Feature: geplant, in Arbeit, verfügbar.
 |---|---|
 | Admin | Verwaltet System, Rechte, Konfiguration |
 | Eltern | Bedienen alles Fachliche, sehen und schalten die Alarmanlage mit PIN |
-| Kinder | Nur freigegebene Räume und Kategorien, nur in Zeitfenstern. Ältere Kinder können mit PIN die Alarmanlage schalten und Status sehen |
+| Kinder | Zwei Kinder, gleichberechtigt. Nur zugeordnete Räume und Kategorien, Rechteprofil je Zeitfenster. Alarm aus, bis Admin ihn freigibt |
 | Gast | Nur Tablets, Gäste-Code mit Gültigkeit von–bis, nur Gästebereich |
 
 ## Features
@@ -27,14 +27,14 @@ Statuswerte je Feature: geplant, in Arbeit, verfügbar.
 
 ### 2. Alarmanlage: Status sehen, scharf/unscharf schalten
 
-- **Wer:** Status sehen: Admin, Eltern, ältere Kinder. Schalten: Admin, Eltern, ältere Kinder, jeweils mit PIN.
+- **Wer:** Status sehen und Schalten, jeweils mit eigener PIN: Admin und Eltern. Für die Kinder ist der Alarm aus, bis Admin ihn freigibt.
 - **Regeln:** Gäste sehen nichts. Die Alarmanlage ist nicht über HomeKit erreichbar. Nach jeder Aktion erscheint eine Rückmeldung.
 - **PIN:** Eine eigene PIN pro Person, kein gemeinsamer PIN. Wird nie im Repository oder in dieser Anleitung dokumentiert. Verwaltung und Ablage legt P4 fest.
 - **Status:** geplant (P2, P3).
 
 ### 3. Energieanzeige (Fronius)
 
-- **Wer:** Admin, Eltern (Annahme).
+- **Wer:** Admin, Eltern, Kinder.
 - **Ablauf (Soll):** Nur Anzeige. Steuerung ist nicht vorgesehen.
 - **Später:** Ladestrom-Balancing zwischen Haus- und Auto-Batterie, sobald ein Elektroauto vorhanden ist. Eigener Planungsschritt.
 - **Status:** geplant (P3).

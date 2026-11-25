@@ -76,3 +76,15 @@ Aufbau je Eintrag: Was, Warum, Entscheidungen, Offen, Verweise.
   - ADR-006: Gäste-Code als Code-Sperre auf dem Gäste-Dashboard, Besuch wird erst nach Freigabe durch Eltern aktiv. Warum: Der Kalender ist nicht gegen Bearbeitung durch Kinder schützbar.
 - **Offen:** OP-07 (Mechanismus), OP-08 (Alarm- und Energie-Rechte der Kinder), OP-09 (Nacht-Profil), OP-10 (Akzeptanz Komfortgrenze). SPC-seitige PIN zu prüfen in Paket 3.
 - **Verweise:** `04-rbac.md`, `adr/ADR-005`, `adr/ADR-006`, `changes/CHG-005`.
+
+---
+
+## 2026-11-25: Entscheidungen zu Paket 2
+
+- **Entscheidungen des Auftraggebers:**
+  - OP-08: Alarm für Kinder aus, bis Admin ihn freigibt. Energie-Anzeige für Kinder: ja.
+  - OP-09: Vorschlag für das Nacht-Profil bestätigt, konkrete Werte legt der Betreiber bei der Umsetzung fest.
+  - OP-10: Komfortgrenzen bei Licht, Beschattung und Klima akzeptiert, Alarm wird hart abgesichert.
+  - ADR-005: Empfehlung (Schutzstufen-Modell) bestätigt, Status „Akzeptiert“. Warum: Der Aufwand für harte Durchsetzung konzentriert sich auf den Alarm, bei Komfortfunktionen ist der mögliche Schaden gering.
+- **Offen:** ADR-006 (Gäste-Code) ist noch nicht entschieden, damit auch OP-07. SPC-seitige PIN zu prüfen in Paket 3.
+- **Verweise:** `04-rbac.md`, `adr/ADR-005`, `changes/CHG-005`.

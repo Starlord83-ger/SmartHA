@@ -51,9 +51,9 @@ Admin, Eltern, zwei Kinder (gleichberechtigt, Rechte je Kind konfigurierbar), Ga
 | Funktion | Admin | Eltern | Kind | Gast |
 |---|---|---|---|---|
 | Licht, Beschattung, Klima | ja | ja | zugeordnete Räume, Umfang je Rechteprofil (Tag, Nacht) | nur Gästebereich im Besuchszeitraum |
-| Alarm-Status und Rückmeldung sehen | ja | ja | nur wenn für das Kind freigegeben (Standard: aus, OP-08) | nein |
-| Alarm scharf/unscharf (eigene PIN) | ja | ja | nur wenn für das Kind freigegeben (Standard: aus, OP-08) | nein |
-| Energie-Anzeige | ja (Annahme) | ja (Annahme) | offen (Annahme: nein) | nein |
+| Alarm-Status und Rückmeldung sehen | ja | ja | nur wenn für das Kind freigegeben (aus bis zur Freigabe, OP-08) | nein |
+| Alarm scharf/unscharf (eigene PIN) | ja | ja | nur wenn für das Kind freigegeben (aus bis zur Freigabe, OP-08) | nein |
+| Energie-Anzeige | ja | ja | ja | nein |
 | Systemverwaltung | ja | nein | nein | nein |
 
 ## 6. Nichtfunktionale Anforderungen
@@ -85,15 +85,15 @@ Admin, Eltern, zwei Kinder (gleichberechtigt, Rechte je Kind konfigurierbar), Ga
 | OP-05 | HomeKit-Umfang und Gästezugang | tbd |
 | OP-06 | Erledigt (2026-11-25): HA bleibt als Container in Portainer, weil weitere Anwendungen auf dem Pi laufen (ADR-003). Der bestehende Container bleibt bis zur Freigabe unverändert | – |
 | OP-07 | Gäste-Code: neu pro Besuch (entschieden). Offen ist der technische Mechanismus, Entwurf in ADR-006 | Option A mit Freigabe durch Eltern |
-| OP-08 | Dürfen die Kinder die Alarmanlage sehen und schalten (beide gleich)? Dürfen sie die Energie-Anzeige sehen? | Alarm: Standard aus, bis Admin freigibt. Energie: nein |
-| OP-09 | Grenzwerte im Nacht-Profil der Kinder (z. B. Helligkeit, Beschattung, Klima) | Vorschlag in `04-rbac.md`, Betreiber legt Werte fest |
-| OP-10 | Akzeptanz: Kinder- und Gästegrenzen bei Komfortfunktionen sind eine Komfortgrenze, keine harte Sicherheitsgrenze (ADR-005) | Ja, Alarm wird hart abgesichert |
+| OP-08 | Erledigt (2026-11-25): Alarm für Kinder aus, bis Admin freigibt. Energie-Anzeige für Kinder: ja | – |
+| OP-09 | Erledigt (2026-11-25): Vorschlag in `04-rbac.md` bestätigt, konkrete Werte legt der Betreiber bei der Umsetzung fest | – |
+| OP-10 | Erledigt (2026-11-25): akzeptiert. Kinder- und Gästegrenzen bei Komfortfunktionen sind eine Komfortgrenze, Alarm wird hart abgesichert (ADR-005) | – |
 
 ## 9. Risiken
 
 | ID | Risiko | Gegenmaßnahme |
 |---|---|---|
-| R-01 | Bestätigt (Paket 2): Home Assistant kennt nativ im Wesentlichen nur Admin und Nicht-Admin. Rechte pro Kind, Raum und Zeit sind nicht eingebaut, ausgeblendete Dashboards sind keine Sicherheitsgrenze | Schutzstufen-Modell nach ADR-005 (Entwurf), Alarm an der Quelle absichern |
+| R-01 | Bestätigt (Paket 2): Home Assistant kennt nativ im Wesentlichen nur Admin und Nicht-Admin. Rechte pro Kind, Raum und Zeit sind nicht eingebaut, ausgeblendete Dashboards sind keine Sicherheitsgrenze | Schutzstufen-Modell nach ADR-005 (akzeptiert), Alarm an der Quelle absichern |
 | R-02 | Loxone Gen1 ist ein Altgerät, Schnittstellen und Support sind begrenzt | Prüfung in Paket 3, Fallback-Optionen |
 | R-03 | Alarm-Schalten aus HA vergrößert die Angriffsfläche | PIN, Rollenbeschränkung, Audit-Log, VPN-only |
 | R-04 | Ausfall des Pi (Speichermedium) | Backup auf NAS, Restore-Test, DR-Plan in Paket 5 |
