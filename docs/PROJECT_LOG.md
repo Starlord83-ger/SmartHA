@@ -88,3 +88,13 @@ Aufbau je Eintrag: Was, Warum, Entscheidungen, Offen, Verweise.
   - ADR-005: Empfehlung (Schutzstufen-Modell) bestätigt, Status „Akzeptiert“. Warum: Der Aufwand für harte Durchsetzung konzentriert sich auf den Alarm, bei Komfortfunktionen ist der mögliche Schaden gering.
 - **Offen:** ADR-006 (Gäste-Code) ist noch nicht entschieden, damit auch OP-07. SPC-seitige PIN zu prüfen in Paket 3.
 - **Verweise:** `04-rbac.md`, `adr/ADR-005`, `changes/CHG-005`.
+
+---
+
+## 2026-11-25: Freigabe von Paket 2
+
+- **Entscheidung des Auftraggebers:** ADR-006 (Gäste-Code) bestätigt, Status „Akzeptiert“. PR 3 gemergt. Paket 2 ist damit freigegeben.
+- **Warum ADR-006 so:** Option A (Code-Sperre auf dem Gäste-Dashboard, neu pro Besuch, Besuch wird erst nach Freigabe durch Eltern aktiv) ist mit vorhandenen Mitteln machbar und deckt ab, dass der Kalender nicht gegen Bearbeitung durch Kinder schützbar ist.
+- **Offen:** Machbarkeit der Code-Sperre und der automatischen Erneuerung vor der Umsetzung prüfen. SPC-seitige PIN prüfen (Paket 3). Releases `v0.1.0` und `v0.2.0` müssen auf GitHub manuell angelegt werden, weil der Tag-Upload aus der Sitzung nicht möglich war.
+- **Nächster Schritt:** Paket 3 (Schnittstellen). Eingang: Loxone-API-Beschreibung und Firmware-Version des Miniservers, ohne Zugangsdaten.
+- **Verweise:** `adr/ADR-006`, `changes/CHG-006`.

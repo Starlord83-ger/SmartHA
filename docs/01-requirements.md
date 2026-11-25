@@ -1,6 +1,6 @@
 # 01 Anforderungsanalyse
 
-Stand: 2026-11-25 · Status: Freigegeben (Paket 1 und 1b), ergänzt durch Paket 2 (Entwurf)
+Stand: 2026-11-25 · Status: Freigegeben (Pakete 1, 1b und 2)
 
 ## 1. Ziel und Scope
 
@@ -84,7 +84,7 @@ Admin, Eltern, zwei Kinder (gleichberechtigt, Rechte je Kind konfigurierbar), Ga
 | OP-04 | Entschieden (2026-11-25): Bidirektionale Schnittstelle wird gebaut (ADR-004). Offen: API-Beschreibung und Firmware-Version des Miniservers als Eingang für Paket 3 bereitstellen (ohne Zugangsdaten) | Prüfvorbehalt zu vorhandenen Lösungen in Paket 3 |
 | OP-05 | HomeKit-Umfang und Gästezugang | tbd |
 | OP-06 | Erledigt (2026-11-25): HA bleibt als Container in Portainer, weil weitere Anwendungen auf dem Pi laufen (ADR-003). Der bestehende Container bleibt bis zur Freigabe unverändert | – |
-| OP-07 | Gäste-Code: neu pro Besuch (entschieden). Offen ist der technische Mechanismus, Entwurf in ADR-006 | Option A mit Freigabe durch Eltern |
+| OP-07 | Erledigt (2026-11-25): Gäste-Code neu pro Besuch, Mechanismus nach ADR-006 (Code-Sperre auf dem Gäste-Dashboard, Freigabe durch Eltern). Machbarkeit ist vor der Umsetzung zu prüfen | – |
 | OP-08 | Erledigt (2026-11-25): Alarm für Kinder aus, bis Admin freigibt. Energie-Anzeige für Kinder: ja | – |
 | OP-09 | Erledigt (2026-11-25): Vorschlag in `04-rbac.md` bestätigt, konkrete Werte legt der Betreiber bei der Umsetzung fest | – |
 | OP-10 | Erledigt (2026-11-25): akzeptiert. Kinder- und Gästegrenzen bei Komfortfunktionen sind eine Komfortgrenze, Alarm wird hart abgesichert (ADR-005) | – |

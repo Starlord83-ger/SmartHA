@@ -1,6 +1,6 @@
 # 04 RBAC-Konzept
 
-Stand: 2026-11-25 · Status: Entwurf (zur Freigabe) · Paket 2
+Stand: 2026-11-25 · Status: Freigegeben (2026-11-25) · Paket 2
 
 ## 1. Ziel
 
@@ -82,7 +82,7 @@ Soll-Ablauf:
 3. Zu Beginn wird ein neuer Code aktiv, am Ende wird er ungültig.
 4. Der Code gibt nur Zugriff auf den Gästebereich der Gäste-Tablets.
 
-Wie der Code technisch erzeugt und geprüft wird, ist als Entwurf in ADR-006 beschrieben (OP-07).
+Wie der Code technisch erzeugt und geprüft wird, steht in ADR-006 (akzeptiert).
 
 ## 9. Befund: Was Home Assistant nativ kann
 
@@ -99,7 +99,7 @@ Folgerung: Eine echte Durchsetzung pro Kind, Raum und Zeit ist mit Bordmitteln n
 
 | ID | Inhalt |
 |---|---|
-| OP-07 | Technischer Mechanismus für den Gäste-Code (ADR-006) |
+| OP-07 | Erledigt (2026-11-25): Mechanismus nach ADR-006 (akzeptiert). Machbarkeit vor der Umsetzung zu prüfen |
 | OP-08 | Erledigt (2026-11-25): Alarm für Kinder aus, bis Admin freigibt. Energie-Anzeige für Kinder: ja |
 | OP-09 | Erledigt (2026-11-25): Vorschlag bestätigt. Konkrete Grenzwerte legt der Betreiber bei der Umsetzung fest |
 | OP-10 | Erledigt (2026-11-25): akzeptiert. Kinder- und Gästegrenzen bei Komfortfunktionen sind eine Komfortgrenze, keine harte Sicherheitsgrenze |
@@ -119,4 +119,4 @@ Folgerung: Eine echte Durchsetzung pro Kind, Raum und Zeit ist mit Bordmitteln n
 
 ## 12. Abnahme
 
-Jede Zeile der Rechtematrix ist eindeutig, OP-08 bis OP-10 sind beantwortet, ADR-005 ist akzeptiert, ADR-006 ist noch zu entscheiden.
+Jede Zeile der Rechtematrix ist eindeutig, OP-08 bis OP-10 sind beantwortet, ADR-005 und ADR-006 sind akzeptiert.

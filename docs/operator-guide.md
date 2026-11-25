@@ -57,7 +57,7 @@ Statuswerte je Feature: geplant, in Arbeit, verfügbar.
 
 - **Wer:** Admin und Eltern legen den Gastzeitraum an.
 - **Ablauf (Soll):** Gastzeitraum als Kalendereintrag von–bis. Außerhalb des Zeitraums ist der Zugang gesperrt.
-- **Regel:** Der Code wird neu pro Besuch erzeugt und gilt nur im Zeitraum von–bis. Ein Besuch wird erst nach Freigabe durch Eltern aktiv. Die technische Prüfung ist als Entwurf in ADR-006 beschrieben (OP-07).
+- **Regel:** Der Code wird neu pro Besuch erzeugt und gilt nur im Zeitraum von–bis. Ein Besuch wird erst nach Freigabe durch Eltern aktiv. Die technische Prüfung ist in ADR-006 beschrieben (akzeptiert).
 - **Status:** geplant (P2).
 
 ### 7. Kiosk-Tablets

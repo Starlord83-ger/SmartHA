@@ -39,7 +39,7 @@ Priorität: Security > Stabilität > Wartbarkeit > Performance > Features.
 |---|---|---|
 | 1 | Requirements, ADR-001 Frontend, Kontextdiagramm | freigegeben |
 | 1b | Repo-Standards, ADR-002 bis 004, Paketkatalog, Projektlog, Operatoranleitung | freigegeben |
-| 2 | RBAC-Konzept, ADR-005 und ADR-006 | Entwurf |
+| 2 | RBAC-Konzept, ADR-005 und ADR-006 | freigegeben |
 | 3 | Schnittstellen (Loxone Gen1 Eigenbau, SPC, Fronius) | geplant |
 | 4 | Netzwerk, Security, Secrets | geplant |
 | 5 | Backup und Disaster-Recovery-Plan | geplant |

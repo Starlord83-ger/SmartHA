@@ -1,6 +1,6 @@
 # ADR-006: Gäste-Code, neu pro Besuch, kalendergesteuert
 
-- Status: Entwurf (Empfehlung des Architekten, Entscheidung durch den Auftraggeber)
+- Status: Akzeptiert (Empfehlung des Architekten, vom Auftraggeber am 2026-11-25 bestätigt)
 - Datum: 2026-11-25
 - Betrifft: FR-09, OP-07, R-10, R-11
 
@@ -16,9 +16,9 @@ Gäste nutzen nur die Tablets. Der Code wird **neu pro Besuch** erzeugt und gilt
 | B: Gästekonto wird zu Beginn aktiviert und am Ende deaktiviert, der Code ist das Passwort des Gästekontos | Echte Anmeldung | Automatisches Setzen von Passwörtern und Aktivieren von Konten ist in HA nicht vorgesehen (Machbarkeit zu prüfen) |
 | C: Eigener Zugriffs-Vermittler (siehe ADR-005, Option D) | Echte Prüfung, volle Kontrolle | Hoher Entwicklungs- und Pflegeaufwand |
 
-## Empfehlung
+## Entscheidung
 
-Option A, ergänzt um einen Freigabeschritt durch Eltern: Ein Kalendereintrag allein schaltet nichts frei, erst die Bestätigung durch Admin oder Eltern aktiviert den Besuch.
+Option A (vom Auftraggeber am 2026-11-25 bestätigt), ergänzt um einen Freigabeschritt durch Eltern: Ein Kalendereintrag allein schaltet nichts frei, erst die Bestätigung durch Admin oder Eltern aktiviert den Besuch.
 
 ## Warum
 
