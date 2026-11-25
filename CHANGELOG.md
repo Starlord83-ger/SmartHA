@@ -4,6 +4,12 @@ Format angelehnt an „Keep a Changelog“. Versionen werden beim Release vergeb
 
 ## [Unreleased]
 
+(noch nichts)
+
+## [0.2.0] - 2026-11-25 (Paket 2, freigegeben; enthält auch die Doku der Freigabe von Paket 1 und 1b)
+
+Zusätzlich zu den folgenden Einträgen: ADR-006 akzeptiert, OP-07 erledigt, Status von Paket 2 auf „freigegeben“ (`docs/changes/CHG-006-freigabe-paket-2.md`).
+
 ### Paket 2: RBAC-Konzept (Entwurf)
 
 **Neu**
