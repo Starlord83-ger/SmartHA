@@ -58,7 +58,7 @@ Prinzip: kleine bis mittlere Pakete, jedes mit Review und Freigabe. Die Reihenfo
 - **Beschreibung:** Verbindliches Rechtemodell für Admin, Eltern, Kinder und Gäste.
 - **Inhalt:** `04-rbac.md` mit Rollen, Rechtematrix je Kind, Raum, Kategorie und Zeitfenster, PIN-Konzept für die Alarmanlage, Mechanismus für den Gäste-Code auf Basis des HA-Kalenders (ADR-002), Rechte zur Kalenderbearbeitung. Neuer ADR zur technischen Umsetzung.
 - **Warum nach ADR-002:** Gäste-Code und Zeitfenster hängen am Kalender.
-- **Abhängigkeiten:** P1b. Offene Punkte OP-07 bis OP-10 (siehe Anforderungen).
+- **Abhängigkeiten:** P1b. Offener Punkt OP-07 (ADR-006). OP-08 bis OP-10 sind entschieden.
 - **Risiken:** R-01. Home Assistant bringt feingranulare Rechte nicht nativ mit.
 - **Abnahme:** Jede Zeile der Rechtematrix ist eindeutig und prüfbar.
 

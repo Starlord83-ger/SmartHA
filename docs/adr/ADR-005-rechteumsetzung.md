@@ -1,6 +1,6 @@
 # ADR-005: Umsetzung des Rechtemodells (Schutzstufen und Durchsetzung)
 
-- Status: Entwurf (Empfehlung des Architekten, Entscheidung durch den Auftraggeber)
+- Status: Akzeptiert (Empfehlung des Architekten, vom Auftraggeber am 2026-11-25 bestätigt)
 - Datum: 2026-11-25
 - Betrifft: FR-05, FR-06, FR-07, FR-09, R-01, R-11, OP-08 bis OP-10
 
@@ -17,9 +17,9 @@ Rechte sollen pro Kind, Raum, Kategorie und Zeit gelten, die Alarmanlage muss be
 | C: Community-Komponente für Rechte (Zusatzmodul, das Aktionen abfängt) | Feinere Rechte ohne Eigenbau | Drittkomponente im sicherheitsrelevanten Pfad, Pflegezustand und Kompatibilität bei HA-Updates zu prüfen |
 | D: Eigener Zugriffs-Vermittler vor HA, über den alle Clients laufen | Echte Durchsetzung auch für Komfortfunktionen | Hoher Entwicklungs- und Pflegeaufwand, eigene Sicherheitsfläche |
 
-## Empfehlung
+## Entscheidung
 
-Option B. Als Ausbaupfad bleibt Option D, falls die Komfortgrenzen später nicht mehr reichen.
+Option B (Empfehlung des Architekten, vom Auftraggeber am 2026-11-25 bestätigt). Als Ausbaupfad bleibt Option D, falls die Komfortgrenzen später nicht mehr reichen.
 
 ## Warum
 
@@ -29,7 +29,7 @@ Security hat Vorrang. Der Schaden bei Missbrauch ist bei der Alarmanlage hoch, b
 
 - Jede Person mit Schaltrecht bekommt eine eigene Alarm-PIN. Die Prüfung soll an der Quelle erfolgen, Machbarkeit in Paket 3.
 - Für Kinder und Gäste gibt es eigene Nicht-Admin-Konten, eigene Dashboards und gehärtete Tablets (Paket 4).
-- Kinderrechte und Nacht-Profile sind Komfortgrenzen. Der Betreiber muss das akzeptieren (OP-10).
+- Kinderrechte und Nacht-Profile sind Komfortgrenzen. Der Betreiber hat das akzeptiert (OP-10, 2026-11-25).
 - Wenn die SPC keine personenbezogenen Codes mit eigenen Rechten bietet, ist ein neuer ADR nötig.
 
 ## Risiken

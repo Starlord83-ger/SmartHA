@@ -36,16 +36,16 @@ Home Assistant trennt nativ nur Admin und Nicht-Admin (siehe Abschnitt 9). Desha
 | S2 Komfort mit Begrenzung | Licht, Beschattung, Klima für Kinder und Gäste | Konten, Dashboards und Geräte-Härtung in HA. Das ist eine **Komfortgrenze**, keine harte Sicherheitsgrenze |
 | S3 Anzeige | Energie (Fronius) | Nur lesend |
 
-Die Entscheidung dazu steht als Entwurf in ADR-005.
+Die Entscheidung dazu steht in ADR-005 (akzeptiert).
 
 ## 5. Rechtematrix
 
 | Funktion | Admin | Eltern | Kind | Gast |
 |---|---|---|---|---|
 | Licht, Beschattung, Klima | alle Räume | alle Räume | nur zugeordnete Räume, Umfang je Profil | nur Gästebereich, nur im Besuchszeitraum |
-| Alarm-Status und Rückmeldung | ja | ja | nur wenn für das Kind freigegeben (Standard: aus, OP-08) | nein |
-| Alarm scharf/unscharf, mit eigener PIN | ja | ja | nur wenn für das Kind freigegeben (Standard: aus, OP-08) | nein |
-| Energie-Anzeige | ja | ja | nein (Annahme, OP-08) | nein |
+| Alarm-Status und Rückmeldung | ja | ja | nur wenn für das Kind freigegeben (aus bis zur Freigabe durch Admin, OP-08 entschieden) | nein |
+| Alarm scharf/unscharf, mit eigener PIN | ja | ja | nur wenn für das Kind freigegeben (aus bis zur Freigabe durch Admin, OP-08 entschieden) | nein |
+| Energie-Anzeige | ja | ja | ja (OP-08, entschieden) | nein |
 | Kalender ansehen und bearbeiten | ja | ja | nein (Annahme) | nein |
 | Rechte, Räume, Profile, Konten verwalten | ja | nein | nein | nein |
 | Gästebesuch anlegen und freigeben | ja | ja | nein | nein |
@@ -54,7 +54,7 @@ Die Entscheidung dazu steht als Entwurf in ADR-005.
 
 Ein Zeitfenster **sperrt nicht**, sondern schaltet auf ein anderes Rechteprofil um.
 
-| Profil | Gilt | Inhalt (Vorschlag, Annahme, OP-09) |
+| Profil | Gilt | Inhalt (Vorschlag, bestätigt, OP-09) |
 |---|---|---|
 | Tag | Standard | Rechte laut Zuordnung pro Kind, Raum, Kategorie |
 | Nacht | Zeitfenster laut Kalender | Engere Grenzen, z. B. Licht nur bis zu einer gedimmten Stufe, Beschattung und Klima nur im eigenen Zimmer oder nicht änderbar |
@@ -100,9 +100,9 @@ Folgerung: Eine echte Durchsetzung pro Kind, Raum und Zeit ist mit Bordmitteln n
 | ID | Inhalt |
 |---|---|
 | OP-07 | Technischer Mechanismus für den Gäste-Code (ADR-006) |
-| OP-08 | Alarm-Rechte der Kinder: Standard „aus“, bis Admin sie pro Kind freigibt. Energie-Anzeige für Kinder |
-| OP-09 | Grenzwerte im Nacht-Profil |
-| OP-10 | Akzeptanz: Kinder- und Gästegrenzen bei Komfortfunktionen sind eine Komfortgrenze, keine harte Sicherheitsgrenze |
+| OP-08 | Erledigt (2026-11-25): Alarm für Kinder aus, bis Admin freigibt. Energie-Anzeige für Kinder: ja |
+| OP-09 | Erledigt (2026-11-25): Vorschlag bestätigt. Konkrete Grenzwerte legt der Betreiber bei der Umsetzung fest |
+| OP-10 | Erledigt (2026-11-25): akzeptiert. Kinder- und Gästegrenzen bei Komfortfunktionen sind eine Komfortgrenze, keine harte Sicherheitsgrenze |
 | R-01 | Keine native Rechtedurchsetzung in HA (siehe Abschnitt 9) |
 | R-10 | Kalender in HA nicht gegen Bearbeitung durch Kinder schützbar |
 | R-11 | Ein auf einem Tablet gespeicherter Zugang kann bei Diebstahl oder Missbrauch alle Komfortfunktionen steuern |
@@ -119,4 +119,4 @@ Folgerung: Eine echte Durchsetzung pro Kind, Raum und Zeit ist mit Bordmitteln n
 
 ## 12. Abnahme
 
-Jede Zeile der Rechtematrix ist eindeutig, OP-08 bis OP-10 sind beantwortet, ADR-005 und ADR-006 sind entschieden.
+Jede Zeile der Rechtematrix ist eindeutig, OP-08 bis OP-10 sind beantwortet, ADR-005 ist akzeptiert, ADR-006 ist noch zu entscheiden.

@@ -38,3 +38,7 @@ Git-Revert des Commits. Am produktiven System wurde nichts verändert.
 ## Test strategy
 
 Inhaltlicher Review der Rechtematrix, Abgleich mit den Antworten des Auftraggebers, Prüfung der Quellenlinks. Technische Prüfungen folgen in Paket 3 und in den Implementierungspaketen.
+
+## Nachtrag 2026-11-25
+
+ADR-005 ist akzeptiert, OP-08 bis OP-10 sind entschieden (Alarm für Kinder aus bis Freigabe, Energie für Kinder ja, Nacht-Profil-Vorschlag und Komfortgrenzen akzeptiert). ADR-006 bleibt Entwurf. Betroffene Dateien: `docs/04-rbac.md`, `docs/01-requirements.md`, `docs/adr/ADR-005-rechteumsetzung.md`, `docs/adr/README.md`, `docs/operator-guide.md`, `docs/03-development-packages.md`, `CHANGELOG.md`, `docs/PROJECT_LOG.md`.
