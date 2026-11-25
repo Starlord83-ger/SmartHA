@@ -64,3 +64,15 @@ Aufbau je Eintrag: Was, Warum, Entscheidungen, Offen, Verweise.
 - **Entscheidung:** Pakete 1 und 1b werden gemeinsam als Release `v0.1.0` getaggt, weil sie in einem Commit importiert wurden.
 - **Offen:** Sperrregeln in `.claude/settings.json` mit `/permissions` prüfen (Testpunkt aus CHG-003). Repo-Beschreibung auf GitHub setzen (durch den Betreiber). OP-04, OP-05, OP-07.
 - **Verweise:** `changes/CHG-004`, `03-development-packages.md`.
+
+---
+
+## 2026-11-25: Paket 2 (RBAC-Konzept) erstellt
+
+- **Antworten des Auftraggebers:** Zwei Kinder, alle gleichberechtigt, keine Altersstufen. Zeitfenster sperren nicht, sondern setzen ein anderes Rechtelimit (Profile). Admin und Eltern dürfen jederzeit übersteuern. Alarm-PIN pro Person. Gäste-Code neu pro Besuch. Kalender nur durch Admin und Eltern bearbeitbar.
+- **Recherche (Stand 2026-11-25):** HA trennt nativ nur Admin und Nicht-Admin, Ausblenden von Dashboards ist keine Sicherheitsgrenze. Der lokale Kalender ist für Automatisierungen gedacht, nicht als vollwertiger Personenkalender. Das schwächt den ursprünglichen Wunsch nach einer Google-ähnlichen Bedienung (siehe ADR-002, R-07).
+- **Entscheidungen (Entwurf, Freigabe offen):**
+  - ADR-005: Schutzstufen-Modell. Alarm wird an der Quelle (SPC) abgesichert, Komfortfunktionen für Kinder und Gäste sind Komfortgrenzen. Warum: Der Schaden bei Missbrauch ist beim Alarm hoch, bei Licht und Klima gering, und Eigenentwicklung vermeidet dauerhaften Pflegeaufwand.
+  - ADR-006: Gäste-Code als Code-Sperre auf dem Gäste-Dashboard, Besuch wird erst nach Freigabe durch Eltern aktiv. Warum: Der Kalender ist nicht gegen Bearbeitung durch Kinder schützbar.
+- **Offen:** OP-07 (Mechanismus), OP-08 (Alarm- und Energie-Rechte der Kinder), OP-09 (Nacht-Profil), OP-10 (Akzeptanz Komfortgrenze). SPC-seitige PIN zu prüfen in Paket 3.
+- **Verweise:** `04-rbac.md`, `adr/ADR-005`, `adr/ADR-006`, `changes/CHG-005`.

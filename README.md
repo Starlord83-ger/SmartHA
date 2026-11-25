@@ -23,6 +23,7 @@ Priorität: Security > Stabilität > Wartbarkeit > Performance > Features.
 | `docs/adr/` | Architecture Decision Records |
 | `docs/changes/` | Change-Beschreibungen (Zweck, Nutzen, Risiken, Abhängigkeiten, Rollback, Test) |
 | `docs/03-development-packages.md` | Katalog aller Entwicklungspakete mit Inhalt, Begründung und Status |
+| `docs/04-rbac.md` | RBAC-Konzept: Rollen, Schutzstufen, Rechtematrix, Gäste-Code |
 | `docs/PROJECT_LOG.md` | Fortlaufende Projektdokumentation (nur anhängen) |
 | `docs/operator-guide.md` | Operatoranleitung (Features konfigurieren und anwenden) |
 | `docs/runbooks/` | Betriebsanleitungen für Update und Restore |
@@ -38,7 +39,7 @@ Priorität: Security > Stabilität > Wartbarkeit > Performance > Features.
 |---|---|---|
 | 1 | Requirements, ADR-001 Frontend, Kontextdiagramm | freigegeben |
 | 1b | Repo-Standards, ADR-002 bis 004, Paketkatalog, Projektlog, Operatoranleitung | freigegeben |
-| 2 | RBAC-Konzept und ADR zur Umsetzung der Rechte und des Gäste-Codes | geplant |
+| 2 | RBAC-Konzept, ADR-005 und ADR-006 | Entwurf |
 | 3 | Schnittstellen (Loxone Gen1 Eigenbau, SPC, Fronius) | geplant |
 | 4 | Netzwerk, Security, Secrets | geplant |
 | 5 | Backup und Disaster-Recovery-Plan | geplant |
