@@ -54,3 +54,13 @@ Aufbau je Eintrag: Was, Warum, Entscheidungen, Offen, Verweise.
 - **Beschlossen:** alle empfohlenen Repo-Dateien, Claude-Konfiguration (Sperren, Befehle), Paketkatalog, fortlaufende Projektdokumentation und Operatoranleitung anlegen.
 - **Offen:** OP-04 (API-Beschreibung und Firmware-Version bereitstellen), OP-05 (HomeKit), OP-07 (Mechanismus Gäste-Code).
 - **Verweise:** `adr/ADR-002` bis `ADR-004`, `03-development-packages.md`, `changes/CHG-003`.
+
+---
+
+## 2026-11-25: Freigabe von Paket 1 und 1b, Import ins Repository
+
+- **Was:** Erst-Import aller Dokumente in das private Repository (Commit auf `main`, weil das Repo bis dahin nur eine Platzhalter-README enthielt). Auftraggeber hat Paket 1 und 1b freigegeben. Status in den Dokumenten auf „freigegeben“ gesetzt, Changelog-Version 0.1.0 vorbereitet.
+- **Warum Erst-Import auf `main`:** Das Repo war leer, ein Branch hätte keinen Mehrwert gebracht. Ab jetzt gilt Branch und Pull Request (`CONTRIBUTING.md`).
+- **Entscheidung:** Pakete 1 und 1b werden gemeinsam als Release `v0.1.0` getaggt, weil sie in einem Commit importiert wurden.
+- **Offen:** Sperrregeln in `.claude/settings.json` mit `/permissions` prüfen (Testpunkt aus CHG-003). Repo-Beschreibung auf GitHub setzen (durch den Betreiber). OP-04, OP-05, OP-07.
+- **Verweise:** `changes/CHG-004`, `03-development-packages.md`.

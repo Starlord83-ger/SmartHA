@@ -1,6 +1,6 @@
 # 02 Kontextdiagramm
 
-Stand: 2026-11-25 · Status: Entwurf · Paket 1
+Stand: 2026-11-25 · Status: Freigegeben (2026-11-25) · Paket 1 und 1b
 
 Legende: Orange Linien sind bidirektionale Schnittstellen, türkise Knoten sind die Tablets.
 

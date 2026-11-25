@@ -36,8 +36,8 @@ Priorität: Security > Stabilität > Wartbarkeit > Performance > Features.
 
 | Paket | Inhalt | Status |
 |---|---|---|
-| 1 | Requirements, ADR-001 Frontend, Kontextdiagramm | Entwurf |
-| 1b | Repo-Standards, ADR-002 bis 004, Paketkatalog, Projektlog, Operatoranleitung | Entwurf |
+| 1 | Requirements, ADR-001 Frontend, Kontextdiagramm | freigegeben |
+| 1b | Repo-Standards, ADR-002 bis 004, Paketkatalog, Projektlog, Operatoranleitung | freigegeben |
 | 2 | RBAC-Konzept und ADR zur Umsetzung der Rechte und des Gäste-Codes | geplant |
 | 3 | Schnittstellen (Loxone Gen1 Eigenbau, SPC, Fronius) | geplant |
 | 4 | Netzwerk, Security, Secrets | geplant |

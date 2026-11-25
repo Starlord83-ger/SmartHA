@@ -1,6 +1,6 @@
 # 01 Anforderungsanalyse
 
-Stand: 2026-11-25 · Status: Entwurf zur Freigabe · Paket 1
+Stand: 2026-11-25 · Status: Freigegeben (2026-11-25) · Paket 1 und 1b
 
 ## 1. Ziel und Scope
 
