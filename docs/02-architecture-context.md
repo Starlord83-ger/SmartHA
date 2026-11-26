@@ -37,4 +37,4 @@ flowchart LR
 - Loxone und SPC bleiben führend für ihre Funktionen. HA ist Leitstand, nicht Ersatz.
 - HA ist die einzige Instanz, die Frontends bedient. Tablets, Mobilgeräte und HomeKit greifen nie direkt auf SPC oder Loxone zu.
 - Kein Zugang aus dem Internet, nur WireGuard.
-- Die Schnittstellen im Detail folgen in Paket 3.
+- Die Schnittstellen im Detail stehen in `05-interfaces.md` (Paket 3, Entwurf).

@@ -4,7 +4,16 @@ Format angelehnt an „Keep a Changelog“. Versionen werden beim Release vergeb
 
 ## [Unreleased]
 
-(noch nichts)
+### Paket 3: Schnittstellen (Entwurf)
+
+**Neu**
+- `docs/05-interfaces.md`, `docs/adr/ADR-007-spc-anbindung.md` (Entwurf), `docs/adr/ADR-008-fronius-integration.md`, `docs/changes/CHG-007-paket-3-schnittstellen.md`
+
+**Geändert**
+- `docs/adr/ADR-004-loxone-schnittstelle.md` (Prüfvorbehalt aufgehoben), `docs/adr/README.md`, `docs/01-requirements.md` (OP-04, OP-11 bis OP-14, R-12, R-13), `docs/02-architecture-context.md`, `docs/04-rbac.md`, `docs/03-development-packages.md`, `docs/operator-guide.md`, `README.md`, `docs/PROJECT_LOG.md`
+
+**Entfernt**
+- nichts
 
 ## [0.2.0] - 2026-11-25 (Paket 2, freigegeben; enthält auch die Doku der Freigabe von Paket 1 und 1b)
 

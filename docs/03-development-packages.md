@@ -11,7 +11,7 @@ Prinzip: kleine bis mittlere Pakete, jedes mit Review und Freigabe. Die Reihenfo
 | P1 | Grundlagen | freigegeben (2026-11-25) | README, Anforderungen, Kontextdiagramm, ADR-001 |
 | P1b | Repo-Standards und Entscheidungen | freigegeben (2026-11-25) | CLAUDE.md, Vorlagen, ADR-002 bis 004, Paketkatalog, Projektlog, Operatoranleitung |
 | P2 | RBAC-Konzept | freigegeben (2026-11-25) | `04-rbac.md`, ADR-005 (Rechteumsetzung), ADR-006 (Gäste-Code) |
-| P3 | Schnittstellen | geplant | Schnittstellendokument, Loxone-Spezifikation |
+| P3 | Schnittstellen | Entwurf (zur Freigabe) | `05-interfaces.md`, ADR-007 (Entwurf), ADR-008 |
 | P4 | Netzwerk und Security | geplant | Netz-/Sicherheitskonzept, Secret-Ablage, Härtung |
 | P5 | Backup und Disaster Recovery | geplant | DR-Plan, vervollständigte Runbooks |
 | P6 | Use Cases, Tests, Release, Roadmap | geplant | Use-Case-Katalog, Testplan, Release-Plan, Roadmap |
@@ -67,7 +67,8 @@ Prinzip: kleine bis mittlere Pakete, jedes mit Review und Freigabe. Die Reihenfo
 - **Beschreibung:** Spezifikation aller Anbindungen an Home Assistant.
 - **Inhalt:** `05-interfaces.md` mit Loxone Gen1 (Eigenbau nach ADR-004, Datenmodell, Fehlerverhalten, Sicherheit, Tests), Acre SPC (Status, Scharfschalten mit PIN) und Fronius (nur Anzeige, Erweiterbarkeit für Ladestrom-Balancing). Prüfung, ob vorhandene Lösungen den Loxone-Eigenbau verkleinern.
 - **Warum nach P2:** Die Schnittstellen müssen die Rechte aus P2 abbilden können.
-- **Abhängigkeiten:** P2, API-Beschreibung und Firmware-Version von Loxone.
+- **Abhängigkeiten:** P2, Firmware-Version und Abgleich der API-Beschreibung von Loxone (OP-11), FlexC-Prüfung (OP-13).
+- **Stand (2026-11-26):** Loxone bleibt Eigenbau (ADR-004), Fronius nutzt die vorhandene HA-Integration (ADR-008), für SPC liegt eine Empfehlung vor, die Entscheidung des Auftraggebers steht aus (ADR-007).
 - **Risiken:** R-03, R-09.
 - **Abnahme:** Je Schnittstelle sind Richtung, Daten, Rechte, Fehlerfälle und Tests beschrieben.
 

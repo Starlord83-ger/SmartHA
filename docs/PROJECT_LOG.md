@@ -98,3 +98,13 @@ Aufbau je Eintrag: Was, Warum, Entscheidungen, Offen, Verweise.
 - **Offen:** Machbarkeit der Code-Sperre und der automatischen Erneuerung vor der Umsetzung prüfen. SPC-seitige PIN prüfen (Paket 3). Releases `v0.1.0` und `v0.2.0` müssen auf GitHub manuell angelegt werden, weil der Tag-Upload aus der Sitzung nicht möglich war.
 - **Nächster Schritt:** Paket 3 (Schnittstellen). Eingang: Loxone-API-Beschreibung und Firmware-Version des Miniservers, ohne Zugangsdaten.
 - **Verweise:** `adr/ADR-006`, `changes/CHG-006`.
+
+---
+
+## 2026-11-26: Paket 3 (Schnittstellen) als Entwurf erstellt
+
+- **Eingang des Auftraggebers:** Loxone wird gebaut, Spezifikation vorhanden. Fronius nutzt die vorhandene HA-Integration. SPC: FlexC-Spezifikation und Zugang zur HA-Integration vorhanden, Eigenbau oder Integration möglich (Weg nicht festgelegt). Loxone-Firmware-Version noch offen. Geräteliste der Fronius-Anlage geliefert (Anlagenname und Seriennummern bewusst nicht dokumentiert).
+- **Recherche (Stand 2026-11-26):** SPC-Anbindung der HA-Core-Integration läuft über ein Drittanbieter-Gateway, laut Forenbericht ohne Code beim Schalten. FlexC ab Panel-Firmware 3.6. Fronius-Integration von HA Core ist lokal und unterstützt Primo, Symo, Symo Hybrid, Zähler und Storage. Loxone Gen1 erhält Updates bis auf Weiteres.
+- **Entscheidungen:** ADR-004 Prüfvorbehalt aufgehoben (Auftraggeber bestätigt Eigenbau). ADR-008 Fronius akzeptiert. ADR-007 SPC als Entwurf mit Empfehlung Option D: Anzeige über die HA-Integration, Schalten erst nach Prüfung der FlexC-Spezifikation (OP-13). Warum: Das Schalten ist sicherheitskritisch, das Anzeigen nicht, und Eigenbau bindet dauerhaft Pflegeaufwand.
+- **Offen:** OP-11 bis OP-14, Entscheidung zu ADR-007, Freigabe von Paket 3. Releases `v0.1.0` und `v0.2.0` müssen manuell auf GitHub angelegt werden (Anlegen aus der Sitzung ist nicht erlaubt, 403).
+- **Verweise:** `05-interfaces.md`, `adr/ADR-007`, `adr/ADR-008`, `changes/CHG-007`.
