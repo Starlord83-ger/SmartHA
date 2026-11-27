@@ -98,3 +98,32 @@ Aufbau je Eintrag: Was, Warum, Entscheidungen, Offen, Verweise.
 - **Offen:** Machbarkeit der Code-Sperre und der automatischen Erneuerung vor der Umsetzung prüfen. SPC-seitige PIN prüfen (Paket 3). Releases `v0.1.0` und `v0.2.0` müssen auf GitHub manuell angelegt werden, weil der Tag-Upload aus der Sitzung nicht möglich war.
 - **Nächster Schritt:** Paket 3 (Schnittstellen). Eingang: Loxone-API-Beschreibung und Firmware-Version des Miniservers, ohne Zugangsdaten.
 - **Verweise:** `adr/ADR-006`, `changes/CHG-006`.
+
+---
+
+## 2026-11-26: Paket 3 (Schnittstellen) als Entwurf erstellt
+
+- **Eingang des Auftraggebers:** Loxone wird gebaut, Spezifikation vorhanden. Fronius nutzt die vorhandene HA-Integration. SPC: FlexC-Spezifikation und Zugang zur HA-Integration vorhanden, Eigenbau oder Integration möglich (Weg nicht festgelegt). Loxone-Firmware-Version noch offen. Geräteliste der Fronius-Anlage geliefert (Anlagenname und Seriennummern bewusst nicht dokumentiert).
+- **Recherche (Stand 2026-11-26):** SPC-Anbindung der HA-Core-Integration läuft über ein Drittanbieter-Gateway, laut Forenbericht ohne Code beim Schalten. FlexC ab Panel-Firmware 3.6. Fronius-Integration von HA Core ist lokal und unterstützt Primo, Symo, Symo Hybrid, Zähler und Storage. Loxone Gen1 erhält Updates bis auf Weiteres.
+- **Entscheidungen:** ADR-004 Prüfvorbehalt aufgehoben (Auftraggeber bestätigt Eigenbau). ADR-008 Fronius akzeptiert. ADR-007 SPC als Entwurf mit Empfehlung Option D: Anzeige über die HA-Integration, Schalten erst nach Prüfung der FlexC-Spezifikation (OP-13). Warum: Das Schalten ist sicherheitskritisch, das Anzeigen nicht, und Eigenbau bindet dauerhaft Pflegeaufwand.
+- **Offen:** OP-11 bis OP-14, Entscheidung zu ADR-007, Freigabe von Paket 3. Releases `v0.1.0` und `v0.2.0` müssen manuell auf GitHub angelegt werden (Anlegen aus der Sitzung ist nicht erlaubt, 403).
+- **Verweise:** `05-interfaces.md`, `adr/ADR-007`, `adr/ADR-008`, `changes/CHG-007`.
+
+---
+
+## 2026-11-27: Loxone-Firmware-Version ergänzt
+
+- **Eingang:** Screenshot der Loxone-App. Firmware 17.3.11.10, interne Verbindung „nicht verschlüsselt“. Seriennummer, IP, Benutzername und Anlagenname werden bewusst nicht dokumentiert.
+- **Entscheidung:** Keine neue. OP-11 ist teilweise erledigt. Warum: Die Firmware-Hauptversion passt zur öffentlichen API-Beschreibung (V17.0), die Unverschlüsselung verstärkt die Vorgabe „nur Haus-LAN, dediziertes Konto“.
+- **Offen:** Abgleich der privaten API-Beschreibung, Verschlüsselungsmöglichkeit auf Gen1.
+- **Verweise:** `05-interfaces.md` Abschnitt 2, `01-requirements.md` OP-11.
+
+---
+
+## 2026-11-27: ADR-007 entschieden (FlexC-Engine)
+
+- **Entscheidung des Auftraggebers:** Volle FlexC-Engine für Status und Schalten, Anzeige und Bedienung in HA, Anmeldung am Panel mit gespeichertem SPC-Benutzernamen und -Passwort. ADR-007 auf „Akzeptiert“, OP-12 erledigt.
+- **Warum:** Ein durchgängiger Weg ohne Drittkomponente, passend zum Eigenbau bei Loxone. Abweichung von der Empfehlung (HA-Integration für die Anzeige, Schalten nach Prüfung): Nachteil ist dauerhafter Pflegeaufwand (R-13).
+- **Folge:** Das Panel sieht nur das Dienstkonto, die PIN pro Person prüft die Engine (nicht die HA-Oberfläche), Audit-Log in der Engine. Neues Risiko R-14 (gespeicherte Zugangsdaten mit Schaltrechten). R-12 gegenstandslos. Zugangsdaten nur in der Secret-Ablage (Paket 4), nie im Repo.
+- **Offen:** OP-13 (Code je Befehl möglich? Rechte des Dienstkontos, eigener Benutzer für die Engine), OP-11, OP-14, Freigabe von Paket 3.
+- **Verweise:** `adr/ADR-007`, `05-interfaces.md` Abschnitt 3, `01-requirements.md`.

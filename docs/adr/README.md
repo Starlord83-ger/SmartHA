@@ -9,9 +9,11 @@ Jede wesentliche Entscheidung bekommt einen ADR mit **Warum**. Vorlage: `ADR-000
 | [ADR-001](ADR-001-frontend-strategie.md) | Frontend-Strategie (HA primär, HomeKit alternativ) | Akzeptiert | 2026-11-25 |
 | [ADR-002](ADR-002-kalender.md) | Kalender: interner HA-Kalender | Akzeptiert | 2026-11-25 |
 | [ADR-003](ADR-003-ha-container.md) | Home Assistant bleibt als Container in Portainer | Akzeptiert | 2026-11-25 |
-| [ADR-004](ADR-004-loxone-schnittstelle.md) | Loxone Gen1: bidirektionale Schnittstelle als Eigenbau | Akzeptiert mit Prüfvorbehalt | 2026-11-25 |
+| [ADR-004](ADR-004-loxone-schnittstelle.md) | Loxone Gen1: bidirektionale Schnittstelle als Eigenbau | Akzeptiert | 2026-11-25 |
 | [ADR-005](ADR-005-rechteumsetzung.md) | Umsetzung des Rechtemodells (Schutzstufen) | Akzeptiert | 2026-11-25 |
 | [ADR-006](ADR-006-gaeste-code.md) | Gäste-Code, neu pro Besuch, kalendergesteuert | Akzeptiert | 2026-11-25 |
+| [ADR-007](ADR-007-spc-anbindung.md) | SPC-Anbindung über eine eigene FlexC-Engine | Akzeptiert | 2026-11-27 |
+| [ADR-008](ADR-008-fronius-integration.md) | Fronius über die vorhandene HA-Integration (nur Anzeige) | Akzeptiert | 2026-11-26 |
 
 ## Geplant
 

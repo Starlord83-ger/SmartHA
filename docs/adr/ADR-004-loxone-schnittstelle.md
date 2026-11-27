@@ -1,6 +1,6 @@
 # ADR-004: Loxone Gen1, bidirektionale Schnittstelle als Eigenbau
 
-- Status: Akzeptiert mit Prüfvorbehalt (Vorgabe Auftraggeber, 2026-11-25)
+- Status: Akzeptiert (Vorgabe Auftraggeber 2026-11-25, Prüfvorbehalt am 2026-11-26 aufgehoben)
 - Entscheider: Auftraggeber
 - Betrifft: FR-02, FR-14, NFR-01, NFR-02, OP-04, R-09
 
@@ -24,9 +24,9 @@ Option A: Die bidirektionale Schnittstelle wird gebaut, auf Basis der vorhandene
 
 Vorgabe des Auftraggebers. Ein Eigenbau erlaubt ein dediziertes Loxone-Konto mit minimalen Rechten und eine Abbildung genau der benötigten Funktionen (Least Privilege). Als Architekt empfehle ich trotzdem, vor dem Start zu prüfen, ob B den Eigenbau ersetzen oder verkleinern kann, weil der Wartungsaufwand dauerhaft bei dir liegt.
 
-## Prüfvorbehalt
+## Prüfvorbehalt (aufgehoben 2026-11-26)
 
-In Paket 3 wird geprüft, ob B oder C Teile abdecken. Die Entscheidung bleibt beim Auftraggeber.
+In Paket 3 sollte geprüft werden, ob B oder C Teile abdecken. Der Auftraggeber hat am 2026-11-26 bestätigt, dass die Schnittstelle gebaut wird und die Spezifikation vorliegt. Der Eigenbau bleibt damit bei Option A. Offen bleiben Firmware-Version und Abgleich der privaten API-Beschreibung (OP-11). Spezifikation: `docs/05-interfaces.md`.
 
 ## Konsequenzen
 

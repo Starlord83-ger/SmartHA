@@ -81,13 +81,17 @@ Admin, Eltern, zwei Kinder (gleichberechtigt, Rechte je Kind konfigurierbar), Ga
 | OP-01 | Präzisiert (2026-11-25): Beide Kinder sind gleichberechtigt, es gibt keine Altersstufen. Alarm-Freigabe für Kinder siehe OP-08 | – |
 | OP-02 | Erledigt (2026-11-25): Gäste-Code mit Gültigkeit von–bis, gesteuert über den Kalender | – |
 | OP-03 | Erledigt (2026-11-25): Interner HA-Kalender (ADR-002). Funktionsumfang wird in Paket 2 geprüft | – |
-| OP-04 | Entschieden (2026-11-25): Bidirektionale Schnittstelle wird gebaut (ADR-004). Offen: API-Beschreibung und Firmware-Version des Miniservers als Eingang für Paket 3 bereitstellen (ohne Zugangsdaten) | Prüfvorbehalt zu vorhandenen Lösungen in Paket 3 |
+| OP-04 | Erledigt (2026-11-26): Loxone-Schnittstelle wird gebaut (ADR-004), Prüfvorbehalt aufgehoben. Restpunkte siehe OP-11 | – |
 | OP-05 | HomeKit-Umfang und Gästezugang | tbd |
 | OP-06 | Erledigt (2026-11-25): HA bleibt als Container in Portainer, weil weitere Anwendungen auf dem Pi laufen (ADR-003). Der bestehende Container bleibt bis zur Freigabe unverändert | – |
 | OP-07 | Erledigt (2026-11-25): Gäste-Code neu pro Besuch, Mechanismus nach ADR-006 (Code-Sperre auf dem Gäste-Dashboard, Freigabe durch Eltern). Machbarkeit ist vor der Umsetzung zu prüfen | – |
 | OP-08 | Erledigt (2026-11-25): Alarm für Kinder aus, bis Admin freigibt. Energie-Anzeige für Kinder: ja | – |
 | OP-09 | Erledigt (2026-11-25): Vorschlag in `04-rbac.md` bestätigt, konkrete Werte legt der Betreiber bei der Umsetzung fest | – |
 | OP-10 | Erledigt (2026-11-25): akzeptiert. Kinder- und Gästegrenzen bei Komfortfunktionen sind eine Komfortgrenze, Alarm wird hart abgesichert (ADR-005) | – |
+| OP-11 | Teilweise erledigt (2026-11-27): Firmware 17.3.11.10, interne Verbindung laut App unverschlüsselt. Offen: private API-Beschreibung mit der öffentlichen abgleichen, Verschlüsselungsmöglichkeit auf Gen1 prüfen | Bis dahin nur Haus-LAN mit dediziertem Konto |
+| OP-12 | Erledigt (2026-11-27): Eigene FlexC-Engine, Anzeige und Bedienung in HA, gespeichertes SPC-Dienstkonto (ADR-007) | – |
+| OP-13 | In der FlexC-Spezifikation prüfen: Kann der Code der Person je Befehl mitgegeben werden (PIN an der Quelle)? Hat das Dienstkonto nur Status- und Scharfschalt-Rechte, und ist ein eigener Benutzer für die Engine möglich? | Annahme: PIN-Prüfung in der Engine mit Audit-Log, Panel sieht das Dienstkonto |
+| OP-14 | Fronius: Solar API an Dataloggern und Wechselrichtern lokal erreichbar? Gerätezuordnung und Werte mit Solar.web abgleichen | Annahme: erreichbar, Prüfung bei der Umsetzung |
 
 ## 9. Risiken
 
@@ -104,6 +108,9 @@ Admin, Eltern, zwei Kinder (gleichberechtigt, Rechte je Kind konfigurierbar), Ga
 | R-09 | Eigenbau der Loxone-Schnittstelle: Pflegeaufwand, Fehlverhalten kann Gebäudefunktionen beeinflussen | Spezifikation und Tests in Paket 3, Prüfung vorhandener Lösungen, Abschalten ohne Folgen für Loxone (NFR-01) |
 | R-10 | Der Kalender in HA lässt sich nicht gegen Bearbeitung durch Kinder schützen | Besuch wird erst nach Freigabe durch Eltern aktiv (ADR-006) |
 | R-11 | Ein auf einem Tablet gespeicherter Zugang kann bei Diebstahl oder Missbrauch alle Komfortfunktionen steuern | Tablet-Härtung (Paket 4), Token-Erneuerung bei Verlust, kein Zugriff aus dem Internet |
+| R-12 | Gegenstandslos seit 2026-11-27: Die HA-Core-Integration für SPC wird nicht genutzt (ADR-007). Forenbericht: schaltet ohne Code | – |
+| R-13 | Eigenbau FlexC-Engine: Pflegeaufwand, eigene Angriffsfläche, Panel-Firmware muss FlexC unterstützen (ab 3.6) | Eingrenzung auf Status und Schalten, getrennter Betrieb, Abschalten ohne Folgen für SPC (NFR-01) |
+| R-14 | Gespeicherte SPC-Zugangsdaten der Engine erlauben Schalten. Das Panel sieht nur das Dienstkonto, nicht die Person | Dienstkonto mit minimalen Rechten, Secret-Ablage (Paket 4), PIN-Prüfung und Audit-Log in der Engine, Konto-Wechsel ohne Neubau |
 
 ## 10. Abnahme von Paket 1
 

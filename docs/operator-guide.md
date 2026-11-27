@@ -29,15 +29,15 @@ Statuswerte je Feature: geplant, in Arbeit, verfügbar.
 
 - **Wer:** Status sehen und Schalten, jeweils mit eigener PIN: Admin und Eltern. Für die Kinder ist der Alarm aus, bis Admin ihn freigibt.
 - **Regeln:** Gäste sehen nichts. Die Alarmanlage ist nicht über HomeKit erreichbar. Nach jeder Aktion erscheint eine Rückmeldung.
-- **PIN:** Eine eigene PIN pro Person, kein gemeinsamer PIN. Wird nie im Repository oder in dieser Anleitung dokumentiert. Verwaltung und Ablage legt P4 fest.
-- **Status:** geplant (P2, P3).
+- **PIN:** Eine eigene PIN pro Person, kein gemeinsamer PIN (Prüfung in der FlexC-Engine, ADR-007). Wird nie im Repository oder in dieser Anleitung dokumentiert. Verwaltung und Ablage legt P4 fest.
+- **Status:** geplant (P2 freigegeben, P3 Entwurf, SPC über eigene FlexC-Engine, ADR-007).
 
 ### 3. Energieanzeige (Fronius)
 
 - **Wer:** Admin, Eltern, Kinder.
 - **Ablauf (Soll):** Nur Anzeige. Steuerung ist nicht vorgesehen.
 - **Später:** Ladestrom-Balancing zwischen Haus- und Auto-Batterie, sobald ein Elektroauto vorhanden ist. Eigener Planungsschritt.
-- **Status:** geplant (P3).
+- **Status:** geplant (P3 Entwurf, ADR-008: vorhandene HA-Integration, lokal).
 
 ### 4. Rechte der Kinder konfigurieren
 
