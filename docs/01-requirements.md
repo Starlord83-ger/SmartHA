@@ -88,7 +88,7 @@ Admin, Eltern, zwei Kinder (gleichberechtigt, Rechte je Kind konfigurierbar), Ga
 | OP-08 | Erledigt (2026-11-25): Alarm für Kinder aus, bis Admin freigibt. Energie-Anzeige für Kinder: ja | – |
 | OP-09 | Erledigt (2026-11-25): Vorschlag in `04-rbac.md` bestätigt, konkrete Werte legt der Betreiber bei der Umsetzung fest | – |
 | OP-10 | Erledigt (2026-11-25): akzeptiert. Kinder- und Gästegrenzen bei Komfortfunktionen sind eine Komfortgrenze, Alarm wird hart abgesichert (ADR-005) | – |
-| OP-11 | Loxone: Firmware-Version des Miniservers ermitteln, private API-Beschreibung mit der öffentlichen abgleichen, Verschlüsselung auf Gen1 prüfen | Bis dahin nur Haus-LAN mit dediziertem Konto |
+| OP-11 | Teilweise erledigt (2026-11-27): Firmware 17.3.11.10, interne Verbindung laut App unverschlüsselt. Offen: private API-Beschreibung mit der öffentlichen abgleichen, Verschlüsselungsmöglichkeit auf Gen1 prüfen | Bis dahin nur Haus-LAN mit dediziertem Konto |
 | OP-12 | SPC: Weg der Anbindung wählen (ADR-007: HA-Integration, `spc_web` oder FlexC-Eigenbau) | Empfehlung Option D: Anzeige über HA-Integration, Schalten nach Prüfung von OP-13 |
 | OP-13 | SPC: Anhand der FlexC-Spezifikation prüfen, ob personenbezogene Codes, Rechte und Protokollierung für ein Fremdsystem möglich sind. Prüfen, ob die HA-Integration ohne Code schaltet | Annahme: PIN-Prüfung zunächst nur in HA (Restrisiko, eigener ADR) |
 | OP-14 | Fronius: Solar API an Dataloggern und Wechselrichtern lokal erreichbar? Gerätezuordnung und Werte mit Solar.web abgleichen | Annahme: erreichbar, Prüfung bei der Umsetzung |

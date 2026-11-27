@@ -49,9 +49,9 @@ Quellen: <https://www.loxone.com/enen/kb/web-services/>, <https://www.loxone.com
 
 ### Zu prüfen (Eingang durch den Auftraggeber)
 
-- Firmware-Version des Miniservers (OP-11). Sie bestimmt, welche Funktionen der API verfügbar sind.
+- Firmware-Version: **17.3.11.10** (Angabe des Auftraggebers aus der Loxone-App, 2026-11-27). Sie passt zur Hauptversion 17 der öffentlichen Beschreibung (V17.0). Ob alle dort beschriebenen Funktionen auf Gen1 verfügbar sind, wird beim Abgleich geprüft (OP-11).
 - Abgleich der privaten API-Beschreibung des Auftraggebers mit der öffentlichen Beschreibung (OP-11). Die private Beschreibung kommt nicht in das Repository, wenn sie Zugangsdaten oder interne Angaben enthält. Ablageort wird in Paket 4 festgelegt.
-- Ob die Verbindung auf Gen1 verschlüsselt möglich ist (OP-11). Bis dahin gilt: nur im Haus-LAN, dediziertes Konto.
+- Verschlüsselung: Die Loxone-App zeigt für die interne Verbindung „nicht verschlüsselt“ (Stand 2026-11-27). Ob Gen1 eine verschlüsselte Verbindung anbietet, ist zu prüfen (OP-11). Bis dahin gilt: nur im Haus-LAN, dediziertes Konto, Zonentrennung in Paket 4.
 
 ### Datenmodell (fachlich, ohne Codierung)
 

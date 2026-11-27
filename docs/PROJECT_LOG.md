@@ -108,3 +108,12 @@ Aufbau je Eintrag: Was, Warum, Entscheidungen, Offen, Verweise.
 - **Entscheidungen:** ADR-004 Prüfvorbehalt aufgehoben (Auftraggeber bestätigt Eigenbau). ADR-008 Fronius akzeptiert. ADR-007 SPC als Entwurf mit Empfehlung Option D: Anzeige über die HA-Integration, Schalten erst nach Prüfung der FlexC-Spezifikation (OP-13). Warum: Das Schalten ist sicherheitskritisch, das Anzeigen nicht, und Eigenbau bindet dauerhaft Pflegeaufwand.
 - **Offen:** OP-11 bis OP-14, Entscheidung zu ADR-007, Freigabe von Paket 3. Releases `v0.1.0` und `v0.2.0` müssen manuell auf GitHub angelegt werden (Anlegen aus der Sitzung ist nicht erlaubt, 403).
 - **Verweise:** `05-interfaces.md`, `adr/ADR-007`, `adr/ADR-008`, `changes/CHG-007`.
+
+---
+
+## 2026-11-27: Loxone-Firmware-Version ergänzt
+
+- **Eingang:** Screenshot der Loxone-App. Firmware 17.3.11.10, interne Verbindung „nicht verschlüsselt“. Seriennummer, IP, Benutzername und Anlagenname werden bewusst nicht dokumentiert.
+- **Entscheidung:** Keine neue. OP-11 ist teilweise erledigt. Warum: Die Firmware-Hauptversion passt zur öffentlichen API-Beschreibung (V17.0), die Unverschlüsselung verstärkt die Vorgabe „nur Haus-LAN, dediziertes Konto“.
+- **Offen:** Abgleich der privaten API-Beschreibung, Verschlüsselungsmöglichkeit auf Gen1.
+- **Verweise:** `05-interfaces.md` Abschnitt 2, `01-requirements.md` OP-11.
