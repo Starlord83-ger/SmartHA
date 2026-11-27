@@ -7,10 +7,10 @@ Format angelehnt an „Keep a Changelog“. Versionen werden beim Release vergeb
 ### Paket 3: Schnittstellen (Entwurf)
 
 **Neu**
-- `docs/05-interfaces.md`, `docs/adr/ADR-007-spc-anbindung.md` (Entwurf), `docs/adr/ADR-008-fronius-integration.md`, `docs/changes/CHG-007-paket-3-schnittstellen.md`
+- `docs/05-interfaces.md`, `docs/adr/ADR-007-spc-anbindung.md`, `docs/adr/ADR-008-fronius-integration.md`, `docs/changes/CHG-007-paket-3-schnittstellen.md`
 
 **Geändert**
-- `docs/adr/ADR-004-loxone-schnittstelle.md` (Prüfvorbehalt aufgehoben), Firmware-Version in `docs/05-interfaces.md` und OP-11, `docs/adr/README.md`, `docs/01-requirements.md` (OP-04, OP-11 bis OP-14, R-12, R-13), `docs/02-architecture-context.md`, `docs/04-rbac.md`, `docs/03-development-packages.md`, `docs/operator-guide.md`, `README.md`, `docs/PROJECT_LOG.md`
+- `docs/adr/ADR-004-loxone-schnittstelle.md` (Prüfvorbehalt aufgehoben), Firmware-Version in `docs/05-interfaces.md` und OP-11, `docs/adr/README.md`, `docs/01-requirements.md` (OP-04, OP-11 bis OP-14, R-12 bis R-14), `docs/02-architecture-context.md`, `docs/04-rbac.md`, `docs/03-development-packages.md`, `docs/operator-guide.md`, `README.md`, `docs/PROJECT_LOG.md`
 
 **Entfernt**
 - nichts

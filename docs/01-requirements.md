@@ -89,8 +89,8 @@ Admin, Eltern, zwei Kinder (gleichberechtigt, Rechte je Kind konfigurierbar), Ga
 | OP-09 | Erledigt (2026-11-25): Vorschlag in `04-rbac.md` bestätigt, konkrete Werte legt der Betreiber bei der Umsetzung fest | – |
 | OP-10 | Erledigt (2026-11-25): akzeptiert. Kinder- und Gästegrenzen bei Komfortfunktionen sind eine Komfortgrenze, Alarm wird hart abgesichert (ADR-005) | – |
 | OP-11 | Teilweise erledigt (2026-11-27): Firmware 17.3.11.10, interne Verbindung laut App unverschlüsselt. Offen: private API-Beschreibung mit der öffentlichen abgleichen, Verschlüsselungsmöglichkeit auf Gen1 prüfen | Bis dahin nur Haus-LAN mit dediziertem Konto |
-| OP-12 | SPC: Weg der Anbindung wählen (ADR-007: HA-Integration, `spc_web` oder FlexC-Eigenbau) | Empfehlung Option D: Anzeige über HA-Integration, Schalten nach Prüfung von OP-13 |
-| OP-13 | SPC: Anhand der FlexC-Spezifikation prüfen, ob personenbezogene Codes, Rechte und Protokollierung für ein Fremdsystem möglich sind. Prüfen, ob die HA-Integration ohne Code schaltet | Annahme: PIN-Prüfung zunächst nur in HA (Restrisiko, eigener ADR) |
+| OP-12 | Erledigt (2026-11-27): Eigene FlexC-Engine, Anzeige und Bedienung in HA, gespeichertes SPC-Dienstkonto (ADR-007) | – |
+| OP-13 | In der FlexC-Spezifikation prüfen: Kann der Code der Person je Befehl mitgegeben werden (PIN an der Quelle)? Hat das Dienstkonto nur Status- und Scharfschalt-Rechte, und ist ein eigener Benutzer für die Engine möglich? | Annahme: PIN-Prüfung in der Engine mit Audit-Log, Panel sieht das Dienstkonto |
 | OP-14 | Fronius: Solar API an Dataloggern und Wechselrichtern lokal erreichbar? Gerätezuordnung und Werte mit Solar.web abgleichen | Annahme: erreichbar, Prüfung bei der Umsetzung |
 
 ## 9. Risiken
@@ -108,8 +108,9 @@ Admin, Eltern, zwei Kinder (gleichberechtigt, Rechte je Kind konfigurierbar), Ga
 | R-09 | Eigenbau der Loxone-Schnittstelle: Pflegeaufwand, Fehlverhalten kann Gebäudefunktionen beeinflussen | Spezifikation und Tests in Paket 3, Prüfung vorhandener Lösungen, Abschalten ohne Folgen für Loxone (NFR-01) |
 | R-10 | Der Kalender in HA lässt sich nicht gegen Bearbeitung durch Kinder schützen | Besuch wird erst nach Freigabe durch Eltern aktiv (ADR-006) |
 | R-11 | Ein auf einem Tablet gespeicherter Zugang kann bei Diebstahl oder Missbrauch alle Komfortfunktionen steuern | Tablet-Härtung (Paket 4), Token-Erneuerung bei Verlust, kein Zugriff aus dem Internet |
-| R-12 | Die HA-Core-Integration für SPC schaltet laut Forenbericht ohne Code scharf. Eine PIN pro Person ist damit nur in HA prüfbar, nicht an der Quelle (zu prüfen, OP-13) | ADR-007, HA-seitige PIN und Rollenbeschränkung, Audit-Log |
-| R-13 | Eigenbau über FlexC: Pflegeaufwand, eigene Angriffsfläche, Panel-Firmware muss FlexC unterstützen (ab 3.6) | ADR-007, Eingrenzung auf das Nötige, Abschalten ohne Folgen für SPC (NFR-01) |
+| R-12 | Gegenstandslos seit 2026-11-27: Die HA-Core-Integration für SPC wird nicht genutzt (ADR-007). Forenbericht: schaltet ohne Code | – |
+| R-13 | Eigenbau FlexC-Engine: Pflegeaufwand, eigene Angriffsfläche, Panel-Firmware muss FlexC unterstützen (ab 3.6) | Eingrenzung auf Status und Schalten, getrennter Betrieb, Abschalten ohne Folgen für SPC (NFR-01) |
+| R-14 | Gespeicherte SPC-Zugangsdaten der Engine erlauben Schalten. Das Panel sieht nur das Dienstkonto, nicht die Person | Dienstkonto mit minimalen Rechten, Secret-Ablage (Paket 4), PIN-Prüfung und Audit-Log in der Engine, Konto-Wechsel ohne Neubau |
 
 ## 10. Abnahme von Paket 1
 

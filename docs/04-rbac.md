@@ -66,7 +66,7 @@ Ein Zeitfenster **sperrt nicht**, sondern schaltet auf ein anderes Rechteprofil 
 ## 7. Alarm-PIN pro Person
 
 - Jede Person, die schalten darf, hat eine eigene PIN. Es gibt keinen gemeinsamen Familien-PIN.
-- Ziel: Die PIN wird an der Quelle (SPC) geprüft, weil nur dort die Durchsetzung auch dann greift, wenn jemand HA umgeht. Ob die SPC personenbezogene Codes mit eigenen Rechten bietet und wie sie sich anbinden lassen, wird in Paket 3 geprüft (Stand: offen, siehe ADR-007, OP-13 und `05-interfaces.md`).
+- Ziel: Die PIN wird an der Quelle (SPC) geprüft, weil nur dort die Durchsetzung auch dann greift, wenn jemand HA umgeht. Ob die SPC personenbezogene Codes mit eigenen Rechten bietet und wie sie sich anbinden lassen, wird in Paket 3 geprüft (ADR-007: eigene FlexC-Engine, PIN-Prüfung in der Engine, Panel-seitige Code-Übergabe zu prüfen, OP-13).
 - Fallback, falls das nicht geht: Prüfung in HA. Das ist schwächer und wird dann in einem ADR als Restrisiko festgehalten.
 - Nach jeder Aktion erscheint eine Rückmeldung. Wer wann geschaltet hat, soll nachvollziehbar sein (SPC-Protokoll, HA-Logbuch).
 - PINs stehen nie im Repository oder in der Dokumentation.

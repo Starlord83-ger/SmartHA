@@ -117,3 +117,13 @@ Aufbau je Eintrag: Was, Warum, Entscheidungen, Offen, Verweise.
 - **Entscheidung:** Keine neue. OP-11 ist teilweise erledigt. Warum: Die Firmware-Hauptversion passt zur öffentlichen API-Beschreibung (V17.0), die Unverschlüsselung verstärkt die Vorgabe „nur Haus-LAN, dediziertes Konto“.
 - **Offen:** Abgleich der privaten API-Beschreibung, Verschlüsselungsmöglichkeit auf Gen1.
 - **Verweise:** `05-interfaces.md` Abschnitt 2, `01-requirements.md` OP-11.
+
+---
+
+## 2026-11-27: ADR-007 entschieden (FlexC-Engine)
+
+- **Entscheidung des Auftraggebers:** Volle FlexC-Engine für Status und Schalten, Anzeige und Bedienung in HA, Anmeldung am Panel mit gespeichertem SPC-Benutzernamen und -Passwort. ADR-007 auf „Akzeptiert“, OP-12 erledigt.
+- **Warum:** Ein durchgängiger Weg ohne Drittkomponente, passend zum Eigenbau bei Loxone. Abweichung von der Empfehlung (HA-Integration für die Anzeige, Schalten nach Prüfung): Nachteil ist dauerhafter Pflegeaufwand (R-13).
+- **Folge:** Das Panel sieht nur das Dienstkonto, die PIN pro Person prüft die Engine (nicht die HA-Oberfläche), Audit-Log in der Engine. Neues Risiko R-14 (gespeicherte Zugangsdaten mit Schaltrechten). R-12 gegenstandslos. Zugangsdaten nur in der Secret-Ablage (Paket 4), nie im Repo.
+- **Offen:** OP-13 (Code je Befehl möglich? Rechte des Dienstkontos, eigener Benutzer für die Engine), OP-11, OP-14, Freigabe von Paket 3.
+- **Verweise:** `adr/ADR-007`, `05-interfaces.md` Abschnitt 3, `01-requirements.md`.

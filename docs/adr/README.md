@@ -12,7 +12,7 @@ Jede wesentliche Entscheidung bekommt einen ADR mit **Warum**. Vorlage: `ADR-000
 | [ADR-004](ADR-004-loxone-schnittstelle.md) | Loxone Gen1: bidirektionale Schnittstelle als Eigenbau | Akzeptiert | 2026-11-25 |
 | [ADR-005](ADR-005-rechteumsetzung.md) | Umsetzung des Rechtemodells (Schutzstufen) | Akzeptiert | 2026-11-25 |
 | [ADR-006](ADR-006-gaeste-code.md) | Gäste-Code, neu pro Besuch, kalendergesteuert | Akzeptiert | 2026-11-25 |
-| [ADR-007](ADR-007-spc-anbindung.md) | SPC-Anbindung (HA-Integration oder FlexC-Eigenbau) | Entwurf | 2026-11-26 |
+| [ADR-007](ADR-007-spc-anbindung.md) | SPC-Anbindung über eine eigene FlexC-Engine | Akzeptiert | 2026-11-27 |
 | [ADR-008](ADR-008-fronius-integration.md) | Fronius über die vorhandene HA-Integration (nur Anzeige) | Akzeptiert | 2026-11-26 |
 
 ## Geplant

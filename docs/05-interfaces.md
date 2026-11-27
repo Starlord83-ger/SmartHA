@@ -1,6 +1,6 @@
 # 05 Schnittstellen
 
-Stand: 2026-11-26 · Status: Entwurf (zur Freigabe) · Paket 3
+Stand: 2026-11-27 · Status: Entwurf (zur Freigabe) · Paket 3
 
 Dieses Dokument beschreibt, wie Home Assistant (HA) mit Loxone Gen1, Acre SPC und Fronius verbunden wird. Es enthält keinen Implementierungscode. Aussagen zu Versionen und Schnittstellen sind geprüft (mit Quelle) oder als „zu prüfen“ markiert.
 
@@ -14,7 +14,7 @@ flowchart LR
   FRO["Fronius<br/>Energie"]
 
   HA <-->|"Eigenbau nach API-Beschreibung<br/>(ADR-004)"| LOX
-  HA <-->|"Weg offen: ADR-007<br/>HA-Integration oder FlexC-Eigenbau"| SPC
+  HA <-->|"Eigene FlexC-Engine<br/>(ADR-007)"| SPC
   FRO -.->|"HA-Core-Integration, lokal<br/>(ADR-008)"| HA
 
   linkStyle 0,1 stroke:#FF8C00,stroke-width:3px;
@@ -93,7 +93,7 @@ Quellen: <https://www.loxone.com/enen/kb/web-services/>, <https://www.loxone.com
 - Konto-Rechte: Zugriff auf nicht freigegebene Objekte muss scheitern.
 - Ausfall von HA: Loxone bedienbar wie zuvor.
 
-## 3. Acre SPC (Weg noch offen, ADR-007)
+## 3. Acre SPC (eigene FlexC-Engine, ADR-007)
 
 ### Zweck und Richtung
 
@@ -111,12 +111,18 @@ Quellen: <https://www.home-assistant.io/integrations/spc/>, <https://github.com/
 
 ### Kernproblem: PIN an der Quelle
 
-- Laut Community-Bericht schaltet die HA-Core-Integration ohne Code scharf. Damit lässt sich die PIN pro Person (FR-15) nur in HA prüfen, nicht an der Quelle. Das ist ein Forenbericht, kein offizieller Nachweis, und wird bei der Umsetzung geprüft (OP-13).
+- Laut Community-Bericht schaltet die HA-Core-Integration ohne Code scharf. Das ist ein Forenbericht, kein offizieller Nachweis, und spielt für den gewählten Weg keine Rolle mehr, weil diese Integration nicht genutzt wird.
 - Ob SPC über FlexC personenbezogene Codes mit eigenen Rechten und Protokollierung unterstützt und ob ein Fremdsystem damit scharf schalten darf, kann nur anhand der FlexC-Spezifikation und des Panels beantwortet werden (OP-13).
 
-### Optionen und Empfehlung
+### Entscheidung (2026-11-27)
 
-Siehe ADR-007 (Entwurf). Kurzfassung: Status anzeigen ist mit jedem Weg unkritisch. Die Entscheidung hängt an der Frage, wo die PIN geprüft wird und wie viel Eigenbau- und Pflegeaufwand der Auftraggeber tragen will.
+Option C: eine eigene FlexC-Engine liefert Status und nimmt Schaltbefehle an, HA zeigt an und bedient. Die Engine meldet sich mit einem gespeicherten SPC-Konto am Panel an (Ablage in der Secret-Ablage, nie im Repo). Die HA-Integration und `spc_web` werden nicht genutzt. Begründung und Folgen: ADR-007.
+
+Folgen für die Schnittstelle:
+
+- Das Panel sieht nur das Dienstkonto. Die PIN pro Person prüft die Engine, nicht die HA-Oberfläche. Die Zuordnung Person zu Aktion steht im Audit-Log der Engine (OP-13: prüfen, ob FlexC den Code je Befehl mitgeben lässt).
+- Die Engine nimmt Befehle nur von HA an, mit Rollenprüfung und PIN, und läuft getrennt von HA (NFR-01).
+- Das Dienstkonto hat nur Status- und Scharfschalt-Rechte, keine Programmierung (R-14).
 
 ### Fehlerverhalten (unabhängig vom Weg)
 
@@ -131,7 +137,7 @@ Siehe ADR-007 (Entwurf). Kurzfassung: Status anzeigen ist mit jedem Weg unkritis
 
 - SPC ist nie direkt aus dem Internet oder von Tablets erreichbar, nur HA (Kontext).
 - Gateway oder Eigenbau liegt im getrennten Netzsegment (Paket 4).
-- Zugang zum Panel mit dediziertem, eingeschränktem Konto (Annahme 3 in den Anforderungen).
+- Zugang zum Panel mit dediziertem, eingeschränktem Dienstkonto (Annahme 3 in den Anforderungen), Zugangsdaten nur in der Secret-Ablage.
 - Alarm-Schalten ist Schutzstufe S1 und bleibt für Kinder aus, bis Admin freigibt (OP-08).
 
 ### Tests (für die Umsetzung vorgesehen)
@@ -198,4 +204,4 @@ Quellen: <https://www.home-assistant.io/integrations/fronius/>, <https://communi
 
 ## 5. Offene Punkte und Verweise
 
-OP-11 bis OP-14 und R-12, R-13 in `01-requirements.md`. Entscheidungen: ADR-004, ADR-007 (Entwurf), ADR-008. Änderung: `changes/CHG-007-paket-3-schnittstellen.md`.
+OP-11 bis OP-14 und R-12 bis R-14 in `01-requirements.md`. Entscheidungen: ADR-004, ADR-007, ADR-008. Änderung: `changes/CHG-007-paket-3-schnittstellen.md`.

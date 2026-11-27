@@ -1,49 +1,49 @@
-# ADR-007: SPC-Anbindung (Weg zur Alarmanlage)
+# ADR-007: SPC-Anbindung über eine eigene FlexC-Engine
 
-Stand: 2026-11-26 · Status: Entwurf · Paket 3
+Stand: 2026-11-27 · Status: Akzeptiert · Paket 3
 
-- Status: Entwurf (Entscheidung des Auftraggebers offen)
-- Datum: 2026-11-26
+- Status: Akzeptiert (Entscheidung Auftraggeber, 2026-11-27)
+- Datum: 2026-11-27
 - Entscheider: Auftraggeber
-- Betrifft: FR-03, FR-15, NFR-01, NFR-02, OP-12, OP-13, R-03, R-12, R-13
+- Betrifft: FR-03, FR-15, NFR-01, NFR-02, NFR-04, OP-12, OP-13, R-03, R-12, R-13, R-14
 
 ## Kontext
 
-HA soll den Alarmstatus anzeigen und scharf/unscharf schalten. Die PIN gilt pro Person und soll nach ADR-005 möglichst an der Quelle (SPC) geprüft werden (Schutzstufe S1). Der Auftraggeber hat die FlexC-Spezifikation und Zugang zur SPC-HA-Integration und nennt zwei Wege: selbst bauen oder die HA-Integration nutzen.
+HA soll den Alarmstatus anzeigen und scharf/unscharf schalten. Die PIN gilt pro Person (FR-15), Schutzstufe S1 (ADR-005). Der Auftraggeber hat die FlexC-Spezifikation und Zugang zum Panel. Am 2026-11-26 lagen die Optionen A bis D vor, empfohlen war D (Anzeige über die HA-Integration, Schalten nach Prüfung).
 
 ## Optionen
 
 | Option | Vorteile | Nachteile |
 |---|---|---|
-| A: HA-Core-Integration über das Drittanbieter-Gateway | In HA vorhanden, wenig Eigenaufwand, Status und Schalten sofort nutzbar | Zusätzliche Komponente (Gateway), Integration „legacy“, laut Forenbericht Schalten ohne Code, PIN-Prüfung nur in HA |
-| B: Community-Integration `spc_web` | Kein Gateway nötig | Lockert TLS-Sicherheit bewusst, Drittanbieter ohne Zusicherung, nur lokal oder per VPN |
-| C: Eigenbau über FlexC | Volle Kontrolle, PIN-Prüfung an der Quelle möglich, falls das Protokoll es hergibt, Spezifikation vorhanden | Höchster Aufwand und Pflege, eigene Sicherheitsfläche (R-13), Machbarkeit der PIN pro Person offen (OP-13) |
-| D: A für Anzeige, C später für Schalten | Schnell sichtbarer Nutzen, harte Absicherung folgt nach Prüfung | Zwei Etappen, Übergangslösung für das Schalten nötig |
+| A: HA-Core-Integration über Drittanbieter-Gateway | Vorhanden, wenig Eigenaufwand | Zusätzliche Komponente, „legacy“, laut Forenbericht Schalten ohne Code |
+| B: Community-Integration `spc_web` | Kein Gateway | Lockert TLS bewusst, Drittanbieter |
+| C: Eigene FlexC-Engine (Status und Schalten) | Volle Kontrolle, ein Weg für beides, Spezifikation vorhanden, keine Fremdkomponente | Höchster Aufwand und Pflege, eigene Sicherheitsfläche |
+| D: A für Anzeige, C später für Schalten | Schneller Nutzen | Zwei Etappen, Übergang nötig |
 
-## Empfehlung (Entscheidung steht aus)
+## Entscheidung
 
-Option D in dieser Reihenfolge:
-
-1. **Status anzeigen** über Option A. Lesen ist unkritisch und liefert schnell Nutzen.
-2. **Schalten** erst nach Prüfung der FlexC-Spezifikation (OP-13). Ist eine PIN pro Person an der Quelle möglich, wird Option C für das Schalten gebaut. Ist sie es nicht, bleibt das Schalten in HA mit PIN-Prüfung und Rollenbeschränkung, und das Restrisiko wird in einem eigenen ADR festgehalten (so schon in `04-rbac.md` Abschnitt 7 vorgesehen).
+Option C. Eine eigene FlexC-Engine liefert Status und nimmt Schaltbefehle an, HA zeigt an und bedient sie. Die Engine meldet sich mit einem gespeicherten SPC-Benutzernamen und -Passwort am Panel an. Die Zugangsdaten liegen in der Secret-Ablage (Paket 4), nie im Repository.
 
 ## Warum
 
-- Security hat Vorrang: Das Schalten ist der kritische Teil (R-03), das Anzeigen nicht. Es lohnt sich, die harte Variante erst nach der Spezifikationsprüfung zu entscheiden.
-- Stabilität: Option A nutzt Vorhandenes und verkleinert den Eigenbau auf das, was wirklich nötig ist.
-- Wartbarkeit: Jeder Eigenbau (Loxone ist bereits einer, ADR-004) bindet dauerhaft Pflegeaufwand des Auftraggebers.
+Entscheidung des Auftraggebers: ein durchgängiger Weg ohne Drittkomponente. Das vermeidet das Gateway und die Abhängigkeit von einer „legacy“-Integration und hält die Schnittstelle an einer Stelle. Das passt zu ADR-004 (ebenfalls Eigenbau).
+
+Abweichung von meiner Empfehlung (Option D): Ich hatte vorgeschlagen, erst die FlexC-Spezifikation zu prüfen. Das bleibt als Prüfpunkt (OP-13), ändert aber den Weg nicht mehr. Nachteil: dauerhafter Pflegeaufwand beim Auftraggeber (R-13).
 
 ## Konsequenzen
 
-- OP-12: Entscheidung des Auftraggebers über den Weg.
-- OP-13: FlexC-Spezifikation und Panel prüfen: personenbezogene Codes, Rechte, Protokollierung, Schalten durch Fremdsystem.
-- Die Spezifikation kommt nicht ins Repository, wenn sie lizenzgebunden ist. Ablageort und Verweis klärt der Auftraggeber (Paket 4).
+- **Ein Konto für die Engine:** Das Panel sieht nur das gespeicherte Dienstkonto, nicht die einzelne Person. Eine PIN pro Person (FR-15) wird deshalb von der Engine geprüft, nicht vom Panel, es sei denn FlexC erlaubt, den Code der Person je Befehl mitzugeben (OP-13). Das Panel-Protokoll zeigt dann das Dienstkonto, die Zuordnung zur Person steht im Audit-Log der Engine.
+- **Prüfung in der Engine, nicht in der HA-Oberfläche:** Sonst könnte jeder mit HA-Zugang die PIN umgehen. Die Engine nimmt Schaltbefehle nur von HA an und nur mit gültiger PIN der Person.
+- **Schutz des Dienstkontos:** Das gespeicherte Konto kann schalten. Es bekommt nur die nötigen SPC-Rechte (Status und Scharfschalten, keine Programmierung), liegt in der Secret-Ablage und lässt sich ohne Neubau tauschen (R-14).
+- **Annahme zu klären (OP-13):** Das Dienstkonto darf laut Panel-Rechten scharf/unscharf schalten und ein eigener Benutzer für die Engine ist möglich.
+- Die Spezifikation kommt nicht ins Repo, wenn lizenzgebunden. Ablageort in Paket 4.
+- Die Engine läuft getrennt von HA (eigener Container), damit ein HA-Ausfall SPC nicht beeinflusst (NFR-01). Ort und Netzzone in Paket 4.
 - Umsetzung nur nach ausdrücklicher Freigabe.
 
 ## Risiken
 
-R-03 (Angriffsfläche durch Schalten aus HA), R-12 (Schalten ohne Code), R-13 (Eigenbau FlexC).
+R-03 (Angriffsfläche durch Schalten), R-12 (entfällt für den gewählten Weg, da die HA-Integration nicht genutzt wird), R-13 (Pflege und Sicherheit des Eigenbaus), R-14 (gespeicherte Zugangsdaten mit Schaltrechten).
 
 ## Rollback
 
-Anbindung abschalten, SPC läuft unverändert weiter (NFR-01). Wechsel zwischen den Optionen ist möglich, da HA nur eine Alarmentität nach außen zeigt.
+Engine abschalten, SPC läuft unverändert weiter (NFR-01). Rückfall auf Option A oder B ist möglich, weil HA nur eine Alarmentität nach außen zeigt.
